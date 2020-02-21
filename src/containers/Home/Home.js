@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import { PATHS } from '@/constants/routes';
+import { PATHS } from '@/constants';
 
 import styles from './home.styles';
 

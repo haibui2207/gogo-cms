@@ -3,14 +3,7 @@ import SignIn from '@/containers/SignIn/SignIn';
 import SignUp from '@/containers/SignUp';
 import NotFound from '@/containers/NotFound';
 
-const PATHS = {
-  ROOT: '/',
-  SIGN_IN: '/sign-in',
-  SIGN_UP: '/sign-up',
-  NOT_FOUND: '/not-found',
-};
-
-export { PATHS };
+import PATHS from './paths';
 
 /**
  * Using generate app routes
