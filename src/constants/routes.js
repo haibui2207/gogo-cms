@@ -34,7 +34,7 @@ export default [
     exact: true,
   },
   {
-    path: `${PATHS.root}**`,
+    path: `${PATHS.ROOT}**`,
     title: 'Redirect to root',
     redirect: true,
     to: PATHS.NOT_FOUND,

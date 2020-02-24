@@ -1,6 +1,7 @@
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@/assets/font-icons/style.css';
+import './styles.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';

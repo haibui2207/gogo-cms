@@ -10,7 +10,7 @@ const toastProps = {
   placement: NOTIFICATION.POSITION,
 };
 
-const Notification = ({ children, ...rest }) => {
+const Notification = ({ children }) => {
   const { addToast } = useToasts();
   const notification = useSelector(getNotification, shallowEqual);
 
@@ -21,7 +21,7 @@ const Notification = ({ children, ...rest }) => {
     addToast(message, { appearance });
   }, [notification]);
 
-  return React.cloneElement(children, { ...rest });
+  return children;
 };
 
 export default (props) => (
