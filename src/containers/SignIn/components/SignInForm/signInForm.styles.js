@@ -1,11 +1,12 @@
-import { BREAKPOINTS } from '@/styles';
+import { createUseStyles } from 'react-jss';
+import { BREAKPOINTS } from '@/constants';
 
-export default {
+export default createUseStyles((theme) => ({
   container: {
     width: '100%',
     padding: 80,
-    backgroundColor: '#fff',
-    transition: '0.5s linear',
+    backgroundColor: theme.background,
+    transition: 'padding 0.5s linear, margin 0.5s linear',
   },
   logo: { marginBottom: 60 },
   footer: {
@@ -21,4 +22,4 @@ export default {
     container: { padding: [35, 30] },
     logo: { marginBottom: 20 },
   },
-};
+}));

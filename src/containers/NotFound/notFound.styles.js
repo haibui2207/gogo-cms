@@ -1,7 +1,8 @@
+import { createUseStyles } from 'react-jss';
+import BREAKPOINTS from '@/constants/breakpoints';
 import { hexToRgbA } from '@/utils';
-import { BREAKPOINTS } from '@/styles';
 
-export default {
+export default createUseStyles(({
   root: {
     position: 'relative',
     height: '100vh',
@@ -61,4 +62,4 @@ export default {
   [`@media (max-width: ${BREAKPOINTS.MAX_MD})`]: {
     title: { fontSize: '30vw' },
   },
-};
+}));

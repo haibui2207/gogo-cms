@@ -1,13 +1,4 @@
-/**
- * DO NOT SET MULTIPLE COLORS HERE, JUST SET IN LOCAL STYLES
- * BECAUSE IT'S NOT NECESSARY
- */
-export const COLORS = {
-  PRIMARY: '#6e8efb',
-  SECONDARY: '#a777e3',
-};
-
-export const BREAKPOINTS = {
+const BREAKPOINTS = {
   MAX_XS: '374px',
   MIN_SM: '375px',
   MAX_SM: '575px',
@@ -21,3 +12,5 @@ export const BREAKPOINTS = {
   MAX_XXL: '1599px',
   MAX_XXXL: '1600px',
 };
+
+export default BREAKPOINTS;

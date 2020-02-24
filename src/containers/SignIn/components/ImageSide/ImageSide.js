@@ -1,26 +1,25 @@
 import React, { memo } from 'react';
-import PropTypes from 'prop-types';
-import injectSheet from 'react-jss';
+import { useTheme } from 'react-jss';
 
-import styles from './imageSide.styles';
+import useStyles from './imageSide.styles';
 
-const ImageSide = ({ classes }) => (
-  <div className={classes.container}>
-    <h1 className={classes.title}>MAGIC IS IN THE DETAILS</h1>
-    <p className={classes.description}>
-      Please use your credentials to login.
-      <br />
-      If you are not a member, please&nbsp;
-      <a className={classes.link} href="/register">
-        register
-      </a>
-      .
-    </p>
-  </div>
-);
+const ImageSide = () => {
+  const classes = useStyles({ theme: useTheme() });
 
-ImageSide.propTypes = {
-  classes: PropTypes.objectOf(PropTypes.string).isRequired,
+  return (
+    <div className={classes.container}>
+      <h1 className={classes.title}>MAGIC IS IN THE DETAILS</h1>
+      <p className={classes.description}>
+        Please use your credentials to login.
+        <br />
+        If you are not a member, please&nbsp;
+        <a className={classes.link} href="/register">
+          register
+        </a>
+        .
+      </p>
+    </div>
+  );
 };
 
-export default memo(injectSheet(styles)(ImageSide));
+export default memo(ImageSide);

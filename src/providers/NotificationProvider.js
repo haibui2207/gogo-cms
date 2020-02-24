@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, shallowEqual } from 'react-redux';
 import { ToastProvider, useToasts } from 'react-toast-notifications';
 import { NOTIFICATION } from '@/configs';
-import { getNotification } from './redux/ducks/notification.duck';
+import { getNotification } from '@/redux/ducks/notification.duck';
 
 const toastProps = {
   autoDismiss: true,

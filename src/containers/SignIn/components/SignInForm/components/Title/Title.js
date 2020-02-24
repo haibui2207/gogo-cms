@@ -1,13 +1,12 @@
 import React, { memo } from 'react';
-import PropTypes from 'prop-types';
-import injectSheet from 'react-jss';
+import { useTheme } from 'react-jss';
 
-import styles from './title.styles';
+import useStyles from './title.styles';
 
-const Title = ({ classes }) => <p className={classes.container}>Login</p>;
+const Title = () => {
+  const classes = useStyles({ theme: useTheme() });
 
-Title.propTypes = {
-  classes: PropTypes.objectOf(PropTypes.string).isRequired,
+  return <p className={classes.container}>Login</p>;
 };
 
-export default memo(injectSheet(styles)(Title));
+export default memo(Title);

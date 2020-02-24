@@ -1,7 +1,8 @@
+import { createUseStyles } from 'react-jss';
 import backgroundImage from '@/assets/images/sign-in/balloon.jpg';
-import { BREAKPOINTS } from '@/styles';
+import { BREAKPOINTS } from '@/constants';
 
-export default {
+export default createUseStyles((theme) => ({
   container: {
     width: '100%',
     maxWidth: '40%',
@@ -9,7 +10,7 @@ export default {
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundImage: `url(${backgroundImage})`,
-    color: '#fff',
+    color: theme.textWhite,
     transition: 'padding 0.5s linear',
   },
   title: {
@@ -40,4 +41,4 @@ export default {
     container: { padding: [35, 30] },
     title: { fontSize: 23 },
   },
-};
+}));

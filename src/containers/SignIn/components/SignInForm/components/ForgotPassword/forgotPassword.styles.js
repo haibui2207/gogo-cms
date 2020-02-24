@@ -1,8 +1,10 @@
-export default {
+import { createUseStyles } from 'react-jss';
+
+export default createUseStyles((theme) => ({
   container: {
-    color: '#303030',
+    color: theme.textBlack,
     fontSize: 13,
     lineHeight: 1.5,
-    '&:hover': { textDecoration: 'none', color: '#922c88' },
+    '&:hover': { textDecoration: 'none', color: theme.color },
   },
-};
+}));

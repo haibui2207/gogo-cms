@@ -1,14 +1,15 @@
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '@/assets/font-icons/style.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider, ReactReduxContext } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import { configureStore } from '@/redux';
+import { NotificationProvider, ThemeProvider } from '@/providers';
 
 import App from './App';
-import NotificationProvider from './NotificationProvider';
 import * as serviceWorker from './serviceWorker';
 
 const { store, history, runSagaMiddleware } = configureStore;
@@ -23,7 +24,9 @@ ReactDOM.render(
   <Provider store={store} context={ReactReduxContext}>
     <ConnectedRouter history={history} context={ReactReduxContext}>
       <NotificationProvider>
-        <App />
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
       </NotificationProvider>
     </ConnectedRouter>
   </Provider>,

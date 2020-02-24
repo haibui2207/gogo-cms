@@ -1,7 +1,8 @@
+import { createUseStyles } from 'react-jss';
+import BREAKPOINTS from '@/constants/breakpoints';
 import backgroundImage from '@/assets/images/sign-in/background.jpg';
-import { BREAKPOINTS } from '@/styles';
 
-export default {
+export default createUseStyles(({
   container: {
     height: '100vh',
     backgroundSize: 'cover',
@@ -9,6 +10,7 @@ export default {
     backgroundImage: `url(${backgroundImage})`,
     backgroundPosition: '50%',
     position: 'relative',
+    minWidth: 320,
   },
   contentWrapper: {
     position: 'absolute',
@@ -37,4 +39,4 @@ export default {
   [`@media (max-width: ${BREAKPOINTS.MAX_SM})`]: {
     contentWrapper: { maxWidth: 400 },
   },
-};
+}));

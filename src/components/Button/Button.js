@@ -1,23 +1,26 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import injectSheet from 'react-jss';
+import { useTheme } from 'react-jss';
 import classNames from 'classnames';
 
-import styles from './button.styles';
+import useStyles from './button.styles';
 
-const Button = ({ classes, className, children, ...rest }) => (
-  <button {...rest} className={classNames(classes.container, className)}>
-    {children}
-  </button>
-);
+const Button = ({ className, children, ...rest }) => {
+  const classes = useStyles({ them: useTheme() });
+
+  return (
+    <button {...rest} className={classNames(classes.container, className)}>
+      {children}
+    </button>
+  );
+};
 
 Button.defaultProps = {
   className: '',
 };
 Button.propTypes = {
   className: PropTypes.string,
-  classes: PropTypes.objectOf(PropTypes.string).isRequired,
   children: PropTypes.node.isRequired,
 };
 
-export default injectSheet(styles)(Button);
+export default memo(Button);

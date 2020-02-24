@@ -1,18 +1,17 @@
 import React, { memo } from 'react';
-import PropTypes from 'prop-types';
-import injectSheet from 'react-jss';
+import { useTheme } from 'react-jss';
 import { PATHS } from '@/constants';
 
-import styles from './forgotPassword.styles';
+import useStyles from './forgotPassword.styles';
 
-const ForgotPassword = ({ classes }) => (
-  <a href={PATHS.FORGOT_PASSWORD} className={classes.container}>
-    Forgot password?
-  </a>
-);
+const ForgotPassword = () => {
+  const classes = useStyles({ theme: useTheme() });
 
-ForgotPassword.propTypes = {
-  classes: PropTypes.objectOf(PropTypes.string).isRequired,
+  return (
+    <a href={PATHS.FORGOT_PASSWORD} className={classes.container}>
+      Forgot password?
+    </a>
+  );
 };
 
-export default memo(injectSheet(styles)(ForgotPassword));
+export default memo(ForgotPassword);
