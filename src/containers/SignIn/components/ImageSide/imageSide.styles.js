@@ -12,6 +12,7 @@ export default createUseStyles((theme) => ({
     backgroundImage: `url(${backgroundImage})`,
     color: theme.textWhite,
     transition: 'padding 0.5s linear',
+    userSelect: 'none',
   },
   title: {
     fontSize: 32,

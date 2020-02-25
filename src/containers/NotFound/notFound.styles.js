@@ -6,6 +6,7 @@ export default createUseStyles(({
   root: {
     position: 'relative',
     height: '100vh',
+    userSelect: 'none',
   },
   notFound: {
     maxWidth: 'max-content',

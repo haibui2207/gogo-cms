@@ -11,6 +11,7 @@ export default createUseStyles(({
     backgroundPosition: '50%',
     position: 'relative',
     minWidth: 320,
+    overflow: 'hidden',
   },
   contentWrapper: {
     position: 'absolute',
