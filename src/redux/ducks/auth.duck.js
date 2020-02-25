@@ -25,6 +25,8 @@ export { setFetching, requestFailed, requestSuccess };
 export const signIn = createAction(`${PREFIX}/SIGN_IN`);
 export const signUp = createAction(`${PREFIX}/SIGN_UP`);
 export const signOut = createAction(`${PREFIX}/SIGN_OUT`);
+export const forgotPassword = createAction(`${PREFIX}/FORGOT_PASSWORD`);
+export const resetPassword = createAction(`${PREFIX}/RESET_PASSWORD`);
 
 export const getFetching = (state) => state.auth.fetching;
 export const getSuccess = (state) => state.auth.success;

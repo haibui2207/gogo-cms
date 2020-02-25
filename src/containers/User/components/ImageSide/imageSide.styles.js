@@ -26,10 +26,11 @@ export default createUseStyles((theme) => ({
     fontWeight: 400,
     marginBottom: 0,
     lineHeight: 1.5,
-  },
-  link: {
-    color: 'currentColor',
-    '&:hover': { textDecoration: 'none', color: 'currentColor' },
+    '& a': {
+      color: theme.color,
+      cursor: 'pointer',
+      '&:hover': { textDecoration: 'none', color: theme.colorHover },
+    },
   },
 
   [`@media (max-width: ${BREAKPOINTS.MAX_LG})`]: {

@@ -6,6 +6,8 @@ import {
   signIn,
   signUp,
   signOut,
+  forgotPassword,
+  resetPassword,
 } from '@/redux/ducks/auth.duck';
 import { api } from '@/utils';
 
@@ -48,6 +50,38 @@ function* onSignOutFlow() {
   });
 }
 
+function* onForgotPasswordFlow() {
+  yield takeLatest(forgotPassword, function* onForgotPassword({ payload }) {
+    yield put(setFetching());
+    console.log(payload);
+
+    try {
+      yield put(requestSuccess());
+    } catch (error) {
+      yield put(requestFailed(error));
+    }
+  });
+}
+
+function* onResetpasswordFlow() {
+  yield takeLatest(resetPassword, function* onResetpassword({ payload }) {
+    yield put(setFetching());
+    console.log(payload);
+
+    try {
+      yield put(requestSuccess());
+    } catch (error) {
+      yield put(requestFailed(error));
+    }
+  });
+}
+
 export default function* authSaga() {
-  yield all([onSignInFlow(), onSignUpFlow(), onSignOutFlow()]);
+  yield all([
+    onSignInFlow(),
+    onSignUpFlow(),
+    onSignOutFlow(),
+    onForgotPasswordFlow(),
+    onResetpasswordFlow(),
+  ]);
 }

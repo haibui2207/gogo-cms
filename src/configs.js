@@ -1,3 +1,4 @@
+export const APP_NAME = 'Gogo';
 export const DOMAIN = 'https://reqres.in/api';
 export const FETCHING_TIMEOUT = 5000;
 export const NOTIFICATION = {

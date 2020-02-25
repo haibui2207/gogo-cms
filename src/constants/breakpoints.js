@@ -10,7 +10,7 @@ const BREAKPOINTS = {
   MAX_XL: '1199px',
   MIN_XXL: '1200px',
   MAX_XXL: '1599px',
-  MAX_XXXL: '1600px',
+  MIN_XXXL: '1600px',
 };
 
 export default BREAKPOINTS;
