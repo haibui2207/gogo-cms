@@ -28,6 +28,9 @@ Setting up basic project with bootstrap and redux saga
 # # Fake API
 > https://reqres.in/
 
+# # Setup
+> 1. [husky](https://dev.to/botreetechnologies/setting-up-husky-pre-commit-hook-with-eslint-prettier-and-lint-staged-for-react-and-react-native-d05)
+
 # # JsConfig.js fix module not resolved
 > 1. https://stackoverflow.com/questions/38044010/make-vs-code-read-webpack-config-and-recognize-path-with-alias
 

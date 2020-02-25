@@ -77,7 +77,15 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build"
+    "styleguide:build": "styleguidist build",
+    "pre-commit": "lint-staged",
+    "lint": "node ./node_modules/eslint/bin/eslint.js src/**/*.js"
+  },
+  "lint-staged": {
+    "*src/**/*.{js,jsx}": [
+      "eslint --max-warnings=0",
+      "git add"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -154,8 +162,15 @@
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^4.2.3",
     "jquery": "^3.4.1",
+    "lint-staged": "^10.0.7",
     "popper.js": "^1.16.0",
     "react-styleguidist": "9.0.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run pre-commit"
+    }
   }
 }
