@@ -27,7 +27,7 @@ export default createUseStyles((theme) => ({
     marginBottom: 0,
     lineHeight: 1.5,
     '& a': {
-      color: theme.color,
+      color: 'currentColor',
       cursor: 'pointer',
       '&:hover': { textDecoration: 'none', color: theme.colorHover },
     },

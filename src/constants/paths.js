@@ -4,6 +4,7 @@ const ROOT = '/';
 
 const PATHS = {
   ROOT,
+  APP: routes.combineRoutePath(ROOT, 'app'),
   USER: routes.combineRoutePath(ROOT, 'user'),
   SIGN_IN: routes.combineRoutePath(ROOT, 'sign-in'),
   SIGN_UP: routes.combineRoutePath(ROOT, 'sign-up'),

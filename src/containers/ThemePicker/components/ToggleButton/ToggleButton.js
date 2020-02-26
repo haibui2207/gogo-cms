@@ -8,7 +8,7 @@ const ToggleButton = (props) => {
 
   return (
     <button {...props} className={classes.container}>
-      <i className="icon-magic" />
+      <i className="icon-magic-wand" />
     </button>
   );
 };
