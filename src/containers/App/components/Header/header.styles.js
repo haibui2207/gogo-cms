@@ -11,12 +11,14 @@ export default createUseStyles(theme => ({
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: theme.background,
+    transition: 'height .3s',
     boxShadow: '0 1px 15px rgba(0,0,0,.04), 0 1px 6px rgba(0,0,0,.04)',
   },
   leftHeader: {
     display: 'flex',
     alignItems: 'center',
   },
+  logo: { width: 110 },
   rightHeader: {
     display: 'flex',
     alignItems: 'center',
@@ -30,5 +32,6 @@ export default createUseStyles(theme => ({
   },
   [`@media (max-width: ${BREAKPOINTS.MAX_MD})`]: {
     container: { height: HEIGHT.MD },
+    logo: { width: 80 },
   },
 }));

@@ -8,6 +8,7 @@ export default createUseStyles((theme) => ({
     transform: 'translateY(-50%)',
     display: 'flex',
     alignItems: 'center',
+    zIndex: 99999,
   },
   boxPicker: {
     width: 280,

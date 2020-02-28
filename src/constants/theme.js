@@ -26,10 +26,12 @@ export const WHITE_MODE = {
   colorHover: HOVER_COLORS.PURPLE,
   borderRadius: BORDER_RADIUS,
   background: '#fff',
+  background2: '#f8f8f8',
   textWhite: '#fff',
   textBlack: '#303030',
   textGray: '#909090',
   borderColor: '#d7d7d7',
+  borderColor2: '#f3f3f3',
 };
 
 export const DARK_MODE = {
@@ -37,8 +39,10 @@ export const DARK_MODE = {
   colorHover: HOVER_COLORS.PURPLE,
   borderRadius: BORDER_RADIUS,
   background: '#232223',
+  background2: '#1b191b',
   textWhite: '#d0d0d0',
   textBlack: '#969696',
   textGray: '#5a5a5a',
   borderColor: '#424242',
+  borderColor2: '#313131',
 };

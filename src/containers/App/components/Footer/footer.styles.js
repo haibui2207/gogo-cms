@@ -11,8 +11,9 @@ export default createUseStyles(theme => ({
     alignItems: 'center',
     backgroundColor: 'transparent',
     justifyContent: 'space-between',
-    borderTop: '1px solid #d7d7d7',
+    borderTop: `1px solid ${theme.borderColor}`,
     userSelect: 'none',
+    transition: 'height .3s, padding .3s',
   },
   copyRight: {
     fontSize: 14,
