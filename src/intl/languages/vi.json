@@ -1,0 +1,32 @@
+{
+  "SIGN_IN.IMAGE_SIDE.TITLE": "Sự kỳ diệu nằm bên trong những chi tiết",
+  "SIGN_IN.IMAGE_SIDE.SUB_TITLE": "Vui lòng sử dụng thông tin của bạn để đăng nhập.<br />Nếu bạn chưa là thành viên, vui lòng <a href={href}>đăng ký</a>.",
+  "SIGN_IN.FORM.TITLE": "Đăng nhập",
+  "SIGN_IN.FORM.FIELD.EMAIL": "E-mail",
+  "SIGN_IN.FORM.FIELD.PASSWORD": "Mật khẩu",
+  "SIGN_IN.FORM.FOOTER.FORGOT_PASSWORD": "Quên mật khẩu?",
+  "SIGN_IN.FORM.FOOTER.SUBMIT_BUTTON": "Đăng nhập",
+
+  "SIGN_UP.IMAGE_SIDE.TITLE": "Sự kỳ diệu nằm bên trong những chi tiết",
+  "SIGN_UP.IMAGE_SIDE.SUB_TITLE": "Vui lòng sử dụng biểu mẫu này để đăng ký.<br />Nếu bạn đã là thành viên, vui lòng <a href={href}>đăng nhập</a>.",
+  "SIGN_UP.FORM.TITLE": "Đăng ký",
+  "SIGN_UP.FORM.FIELD.FULL_NAME": "Họ và tên",
+  "SIGN_UP.FORM.FIELD.EMAIL": "E-mail",
+  "SIGN_UP.FORM.FIELD.PASSWORD": "Mật khẩu",
+  "SIGN_UP.FORM.FOOTER.SUBMIT_BUTTON": "Đăng ký",
+
+  "FORGOT_PASSWORD.IMAGE_SIDE.TITLE": "Sự kỳ diệu nằm bên trong những chi tiết",
+  "FORGOT_PASSWORD.IMAGE_SIDE.SUB_TITLE": "Sử dụng Email của bạn để lấy lại mật khẩu.<br />Nếu bạn chưa là thành viên, vui lòng <a href={href}>đăng ký</a>.",
+  "FORGOT_PASSWORD.FORM.TITLE": "Quên mật khẩu",
+  "FORGOT_PASSWORD.FORM.FIELD.EMAIL": "E-mail",
+  "FORGOT_PASSWORD.FORM.FOOTER.SIGN_IN": "Đăng nhập ngay",
+  "FORGOT_PASSWORD.FORM.FOOTER.SUBMIT_BUTTON": "Gửi",
+
+  "RESET_PASSWORD.IMAGE_SIDE.TITLE": "Sự kỳ diệu nằm bên trong những chi tiết",
+  "RESET_PASSWORD.IMAGE_SIDE.SUB_TITLE": "Sử dụng Email của bạn để lấy lại mật khẩu.<br />Nếu bạn chưa là thành viên, vui lòng <a href={href}>đăng ký</a>.",
+  "RESET_PASSWORD.FORM.TITLE": "Lấy lại mật khẩu",
+  "RESET_PASSWORD.FORM.FIELD.PASSWORD": "Mật khẩu mới",
+  "RESET_PASSWORD.FORM.FIELD.CONFIRM_PASSWORD": "Nhập lại mật khẩu",
+  "RESET_PASSWORD.FORM.FOOTER.SIGN_IN": "Đăng nhập ngay",
+  "RESET_PASSWORD.FORM.FOOTER.SUBMIT_BUTTON": "Gửi"
+}

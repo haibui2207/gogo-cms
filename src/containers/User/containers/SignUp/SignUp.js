@@ -1,6 +1,7 @@
 import React, { useState, memo } from 'react';
 import { useDispatch } from 'react-redux';
 import Input from '@/components/Input';
+import { useIntl, FormattedHTMLMessage } from 'react-intl';
 import { signUp } from '@/redux/ducks/auth.duck';
 
 import FormLayout from '../../components/FormLayout';
@@ -10,6 +11,7 @@ import { PATHS } from '../../constants';
 
 const SignUp = () => {
   const dispatch = useDispatch();
+  const intl = useIntl();
   const [state, setState] = useState({});
 
   const handleInputChange = ({ target: { name, value } }) => {
@@ -23,40 +25,43 @@ const SignUp = () => {
   return (
     <>
       <ImageSide
-        title="MAGIC IS IN THE DETAILS"
+        title={intl.formatMessage({ id: 'SIGN_UP.IMAGE_SIDE.TITLE' })}
         description={(
-          <span>
-            Please use this form to register.
-            <br />
-            If you are a member, please&nbsp;
-            <a href={PATHS.SIGN_IN}>login</a>.
-          </span>
+          <FormattedHTMLMessage
+            id="SIGN_UP.IMAGE_SIDE.SUB_TITLE"
+            values={{ href: PATHS.SIGN_IN }}
+          />
         )}
       />
-      <FormLayout title="Register">
+      <FormLayout title={intl.formatMessage({ id: 'SIGN_UP.FORM.TITLE' })}>
         <Input
           name="name"
-          label="Full Name"
+          label={intl.formatMessage({ id: 'SIGN_UP.FORM.FIELD.FULL_NAME' })}
           value={state.name}
           onChange={handleInputChange}
         />
         <Input
           type="email"
           name="email"
-          label="E-mail"
+          label={intl.formatMessage({ id: 'SIGN_UP.FORM.FIELD.EMAIL' })}
           value={state.email}
           onChange={handleInputChange}
         />
         <Input
           type="password"
           name="password"
-          label="Password"
+          label={intl.formatMessage({ id: 'SIGN_UP.FORM.FIELD.PASSWORD' })}
           value={state.password}
           onChange={handleInputChange}
         />
         <FormFooter
           className="justify-content-end"
-          buttonProps={{ label: 'Register', onClick: handleSubmit }}
+          buttonProps={{
+            label: intl.formatMessage({
+              id: 'SIGN_UP.FORM.FOOTER.SUBMIT_BUTTON',
+            }),
+            onClick: handleSubmit,
+          }}
         />
       </FormLayout>
     </>

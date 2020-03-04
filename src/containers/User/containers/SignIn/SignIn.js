@@ -1,5 +1,6 @@
 import React, { useState, memo } from 'react';
 import { useDispatch } from 'react-redux';
+import { useIntl, FormattedHTMLMessage } from 'react-intl';
 import Input from '@/components/Input';
 import { signIn } from '@/redux/ducks/auth.duck';
 
@@ -10,6 +11,7 @@ import { PATHS } from '../../constants';
 
 const SignIn = () => {
   const dispatch = useDispatch();
+  const intl = useIntl();
   const [state, setState] = useState({
     email: 'eve.holt@reqres.in',
     password: 'gogo123',
@@ -26,34 +28,42 @@ const SignIn = () => {
   return (
     <>
       <ImageSide
-        title="MAGIC IS IN THE DETAILS"
+        title={intl.formatMessage({ id: 'SIGN_IN.IMAGE_SIDE.TITLE' })}
         description={(
-          <span>
-            Please use your credentials to login.
-            <br />
-            If you are not a member, please&nbsp;
-            <a href={PATHS.SIGN_UP}>register</a>.
-          </span>
+          <FormattedHTMLMessage
+            id="SIGN_IN.IMAGE_SIDE.SUB_TITLE"
+            values={{ href: PATHS.SIGN_UP }}
+          />
         )}
       />
-      <FormLayout title="Login">
+      <FormLayout title={intl.formatMessage({ id: 'SIGN_IN.FORM.TITLE' })}>
         <Input
           type="email"
           name="email"
-          label="E-mail"
+          label={intl.formatMessage({ id: 'SIGN_IN.FORM.FIELD.EMAIL' })}
           value={state.email}
           onChange={handleInputChange}
         />
         <Input
           type="password"
           name="password"
-          label="Password"
+          label={intl.formatMessage({ id: 'SIGN_IN.FORM.FIELD.PASSWORD' })}
           value={state.password}
           onChange={handleInputChange}
         />
         <FormFooter
-          linkProps={{ label: 'Forgot password?', href: PATHS.FORGOT_PASSWORD }}
-          buttonProps={{ label: 'Login', onClick: handleSubmit }}
+          linkProps={{
+            label: intl.formatMessage({
+              id: 'SIGN_IN.FORM.FOOTER.FORGOT_PASSWORD',
+            }),
+            href: PATHS.FORGOT_PASSWORD,
+          }}
+          buttonProps={{
+            label: intl.formatMessage({
+              id: 'SIGN_IN.FORM.FOOTER.SUBMIT_BUTTON',
+            }),
+            onClick: handleSubmit,
+          }}
         />
       </FormLayout>
     </>

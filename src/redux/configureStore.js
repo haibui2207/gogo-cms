@@ -1,20 +1,23 @@
-import { createBrowserHistory } from 'history';
 import { routerMiddleware, connectRouter } from 'connected-react-router';
 import createSagaMiddleware from 'redux-saga';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
-import { ROUTES } from '@/constants';
+import { intlReducer } from 'react-intl-redux';
+import history from '@/history';
+import message from '@/intl';
+import { localStorage } from '@/services';
+import { INTL_LOCALE } from '@/configs';
 
 import rootSagas from './sagas';
 import rootDucks from './ducks';
 
-/**
- * Initial browser history
- */
-const history = createBrowserHistory({ basename: ROUTES.root });
+const locale = localStorage.getItem('locale') || INTL_LOCALE.split('-')[0];
+
 /**
  * Initial redux saga state
  */
-const initialState = {};
+const initialState = {
+  intl: { locale, messages: message[locale] },
+};
 /**
  * More infomation read here
  * https://redux-saga.js.org/docs/api/#createsagamiddlewareoptions
@@ -31,6 +34,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const middlewares = [routerMiddleware(history), sagaMiddleware];
 const rootReducers = combineReducers({
   router: connectRouter(history),
+  intl: intlReducer,
   ...rootDucks,
 });
 /**
@@ -44,6 +48,5 @@ const store = createStore(
 
 export default {
   store,
-  history,
   runSagaMiddleware: () => sagaMiddleware.run(rootSagas),
 };

@@ -1,0 +1,32 @@
+{
+  "SIGN_IN.IMAGE_SIDE.TITLE": "MAGIC IS IN THE DETAILS",
+  "SIGN_IN.IMAGE_SIDE.SUB_TITLE": "Please use your credentials to login.<br />If you are not a member, please <a href={href}>register</a>.",
+  "SIGN_IN.FORM.TITLE": "Login",
+  "SIGN_IN.FORM.FIELD.EMAIL": "E-mail",
+  "SIGN_IN.FORM.FIELD.PASSWORD": "Password",
+  "SIGN_IN.FORM.FOOTER.FORGOT_PASSWORD": "Forgot password?",
+  "SIGN_IN.FORM.FOOTER.SUBMIT_BUTTON": "Login",
+
+  "SIGN_UP.IMAGE_SIDE.TITLE": "MAGIC IS IN THE DETAILS",
+  "SIGN_UP.IMAGE_SIDE.SUB_TITLE": "Please use this form to register.<br />If you are a member, please <a href={href}>login</a>.",
+  "SIGN_UP.FORM.TITLE": "Register",
+  "SIGN_UP.FORM.FIELD.FULL_NAME": "Full Name",
+  "SIGN_UP.FORM.FIELD.EMAIL": "E-mail",
+  "SIGN_UP.FORM.FIELD.PASSWORD": "Password",
+  "SIGN_UP.FORM.FOOTER.SUBMIT_BUTTON": "Register",
+
+  "FORGOT_PASSWORD.IMAGE_SIDE.TITLE": "MAGIC IS IN THE DETAILS",
+  "FORGOT_PASSWORD.IMAGE_SIDE.SUB_TITLE": "Please use your e-mail to reset your password.<br />If you are not a member, please <a href={href}>register</a>.",
+  "FORGOT_PASSWORD.FORM.TITLE": "Forgot Password",
+  "FORGOT_PASSWORD.FORM.FIELD.EMAIL": "E-mail",
+  "FORGOT_PASSWORD.FORM.FOOTER.SIGN_IN": "Sign in now",
+  "FORGOT_PASSWORD.FORM.FOOTER.SUBMIT_BUTTON": "Reset",
+
+  "RESET_PASSWORD.IMAGE_SIDE.TITLE": "MAGIC IS IN THE DETAILS",
+  "RESET_PASSWORD.IMAGE_SIDE.SUB_TITLE": "Please use your e-mail to reset your password.<br />If you are not a member, please <a href={href}>register</a>.",
+  "RESET_PASSWORD.FORM.TITLE": "Reset Password",
+  "RESET_PASSWORD.FORM.FIELD.PASSWORD": "New Password",
+  "RESET_PASSWORD.FORM.FIELD.CONFIRM_PASSWORD": "New Password Again",
+  "RESET_PASSWORD.FORM.FOOTER.SIGN_IN": "Sign in now",
+  "RESET_PASSWORD.FORM.FOOTER.SUBMIT_BUTTON": "Reset"
+}

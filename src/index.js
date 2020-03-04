@@ -9,13 +9,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider, ReactReduxContext } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
-import { configureStore } from '@/redux';
-import { NotificationProvider, ThemeProvider } from '@/providers';
+import { IntlProvider } from 'react-intl-redux';
 
 import App from './App';
+import history from './history';
+import { configureStore } from './redux';
+import { NotificationProvider, ThemeProvider } from './providers';
 import * as serviceWorker from './serviceWorker';
 
-const { store, history, runSagaMiddleware } = configureStore;
+const { store, runSagaMiddleware } = configureStore;
 
 /**
  * both Provider and ConnectedRouter to make sure that the ConnectedRouter
@@ -26,11 +28,13 @@ const { store, history, runSagaMiddleware } = configureStore;
 ReactDOM.render(
   <Provider store={store} context={ReactReduxContext}>
     <ConnectedRouter history={history} context={ReactReduxContext}>
-      <NotificationProvider>
-        <ThemeProvider>
-          <App />
-        </ThemeProvider>
-      </NotificationProvider>
+      <IntlProvider>
+        <NotificationProvider>
+          <ThemeProvider>
+            <App />
+          </ThemeProvider>
+        </NotificationProvider>
+      </IntlProvider>
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root'),

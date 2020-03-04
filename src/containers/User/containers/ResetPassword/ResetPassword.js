@@ -1,5 +1,6 @@
 import React, { useState, memo } from 'react';
 import { useDispatch } from 'react-redux';
+import { useIntl, FormattedHTMLMessage } from 'react-intl';
 import Input from '@/components/Input';
 import { forgotPassword } from '@/redux/ducks/auth.duck';
 
@@ -10,6 +11,7 @@ import { PATHS } from '../../constants';
 
 const ResetPassword = () => {
   const dispatch = useDispatch();
+  const intl = useIntl();
   const [state, setState] = useState({});
 
   const handleInputChange = ({ target: { name, value } }) => {
@@ -23,36 +25,48 @@ const ResetPassword = () => {
   return (
     <>
       <ImageSide
-        title="MAGIC IS IN THE DETAILS"
+        title={intl.formatMessage({ id: 'RESET_PASSWORD.IMAGE_SIDE.TITLE' })}
         description={(
-          <span>
-            Please use your e-mail to reset your password.
-            <br />
-            If you are not a member, please&nbsp;
-            <a href={PATHS.SIGN_IN}>register</a>.
-          </span>
+          <FormattedHTMLMessage
+            id="RESET_PASSWORD.IMAGE_SIDE.SUB_TITLE"
+            values={{ href: PATHS.SIGN_UP }}
+          />
         )}
       />
-      <FormLayout title="Reset Password">
+      <FormLayout
+        title={intl.formatMessage({ id: 'RESET_PASSWORD.FORM.TITLE' })}
+      >
         <Input
           type="password"
           name="password"
-          label="New Password"
+          label={intl.formatMessage({
+            id: 'RESET_PASSWORD.FORM.FIELD.PASSWORD',
+          })}
           value={state.password}
           onChange={handleInputChange}
         />
         <Input
           type="password"
           name="confirmPassword"
-          label="New Password Again"
+          label={intl.formatMessage({
+            id: 'RESET_PASSWORD.FORM.FIELD.CONFIRM_PASSWORD',
+          })}
           value={state.confirmPassword}
           onChange={handleInputChange}
         />
         <FormFooter
           linkProps={{
-            label: 'Sign in now', href: PATHS.SIGN_IN,
+            label: intl.formatMessage({
+              id: 'RESET_PASSWORD.FORM.FOOTER.SIGN_IN',
+            }),
+            href: PATHS.SIGN_IN,
           }}
-          buttonProps={{ label: 'Reset', onClick: handleSubmit }}
+          buttonProps={{
+            label: intl.formatMessage({
+              id: 'RESET_PASSWORD.FORM.FOOTER.SUBMIT_BUTTON',
+            }),
+            onClick: handleSubmit,
+          }}
         />
       </FormLayout>
     </>
