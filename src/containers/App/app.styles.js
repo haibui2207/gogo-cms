@@ -1,7 +1,7 @@
 import { createUseStyles } from 'react-jss';
 import BREAKPOINTS from '@/constants/breakpoints';
 
-import { HEIGHT as HEADER_HEIGHT } from './components/Header/header.styles';
+import { HEIGHT as HEADER_HEIGHT } from './containers/Header/header.styles';
 import { HEIGHT as FOOTER_HEIGHT } from './components/Footer/footer.styles';
 
 const getAppBodyHeight = point => `

@@ -1,4 +1,5 @@
 import { takeLatest, all, put, call } from 'redux-saga/effects';
+import { push } from 'react-router-redux';
 import {
   setFetching,
   requestSuccess,
@@ -10,6 +11,7 @@ import {
   resetPassword,
 } from '@/redux/ducks/auth.duck';
 import { api } from '@/utils';
+import { PATHS } from '@/constants';
 
 function* onSignInFlow() {
   yield takeLatest(signIn, function* onSignIn({ payload }) {
@@ -18,6 +20,7 @@ function* onSignInFlow() {
     try {
       const response = yield call(api.signIn, payload);
       yield put(requestSuccess(response));
+      yield put(push(PATHS.APP));
     } catch (error) {
       yield put(requestFailed(error));
     }
@@ -27,8 +30,9 @@ function* onSignInFlow() {
 function* onSignUpFlow() {
   yield takeLatest(signUp, function* onSignUp({ payload }) {
     yield put(setFetching());
+    // eslint-disable-next-line no-console
     console.log(payload);
-
+    // TODO: Not implemented
     try {
       yield put(requestSuccess());
     } catch (error) {
@@ -40,8 +44,9 @@ function* onSignUpFlow() {
 function* onSignOutFlow() {
   yield takeLatest(signOut, function* onSignOut({ payload }) {
     yield put(setFetching());
+    // eslint-disable-next-line no-console
     console.log(payload);
-
+    // TODO: Not implemented
     try {
       yield put(requestSuccess());
     } catch (error) {
@@ -53,8 +58,9 @@ function* onSignOutFlow() {
 function* onForgotPasswordFlow() {
   yield takeLatest(forgotPassword, function* onForgotPassword({ payload }) {
     yield put(setFetching());
+    // eslint-disable-next-line no-console
     console.log(payload);
-
+    // TODO: Not implemented
     try {
       yield put(requestSuccess());
     } catch (error) {
@@ -66,8 +72,9 @@ function* onForgotPasswordFlow() {
 function* onResetpasswordFlow() {
   yield takeLatest(resetPassword, function* onResetpassword({ payload }) {
     yield put(setFetching());
+    // eslint-disable-next-line no-console
     console.log(payload);
-
+    // TODO: Not implemented
     try {
       yield put(requestSuccess());
     } catch (error) {

@@ -33,7 +33,11 @@ export default createUseStyles(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     color: theme.textBlack,
-    '& [class^=icon-]': { fontSize: 30, lineHeight: '42px' },
+    '& [class^=icon-]': {
+      fontSize: 30,
+      lineHeight: '42px',
+      transition: 'font-size .3s',
+    },
     '&:hover': { textDecoration: 'none', color: theme.color },
   },
   label: {

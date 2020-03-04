@@ -30,4 +30,7 @@ export default createUseStyles(theme => ({
   [`@media (max-width: ${BREAKPOINTS.MAX_MD})`]: {
     mainMenu: { width: MAIN_MENU_WIDTH.MD },
   },
+  [`@media (max-width: ${BREAKPOINTS.MAX_SM})`]: {
+    mainMenu: { width: MAIN_MENU_WIDTH.SM },
+  },
 }));

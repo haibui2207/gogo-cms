@@ -10,7 +10,6 @@ export default createUseStyles(theme => ({
     width: 230,
     left: -(SUB_MENU_WIDTH.XXXL - MAIN_MENU_WIDTH.XXXL),
     top: 0,
-    padding: [10, 0],
     height: '100%',
     backgroundColor: theme.background,
     transition: 'margin-left .3s, left .3s',
@@ -35,6 +34,12 @@ export default createUseStyles(theme => ({
     subMenu: {
       left: -(SUB_MENU_WIDTH.MD - MAIN_MENU_WIDTH.MD),
       '&.active': { left: MAIN_MENU_WIDTH.MD },
+    },
+  },
+  [`@media (max-width: ${BREAKPOINTS.MAX_SM})`]: {
+    subMenu: {
+      left: -(SUB_MENU_WIDTH.SM - MAIN_MENU_WIDTH.SM),
+      '&.active': { left: MAIN_MENU_WIDTH.SM },
     },
   },
 }));

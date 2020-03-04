@@ -57,6 +57,7 @@ export default createUseStyles(theme => ({
     container: { padding: [0, 15] },
   },
   [`@media (max-width: ${BREAKPOINTS.MAX_SM})`]: {
-    container: { height: HEIGHT.SM },
+    container: { justifyContent: 'flex-start', height: HEIGHT.SM },
+    list: { display: 'none' },
   },
 }));

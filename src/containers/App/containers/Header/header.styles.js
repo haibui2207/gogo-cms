@@ -18,6 +18,7 @@ export default createUseStyles(theme => ({
     display: 'flex',
     alignItems: 'center',
   },
+  toggleSidebarButton: {},
   logo: { width: 110 },
   rightHeader: {
     display: 'flex',
@@ -33,5 +34,11 @@ export default createUseStyles(theme => ({
   [`@media (max-width: ${BREAKPOINTS.MAX_MD})`]: {
     container: { height: HEIGHT.MD },
     logo: { width: 80 },
+    toggleSidebarButton: {
+      '&.active': { pointerEvents: 'none' },
+    },
+  },
+  [`@media (max-width: ${BREAKPOINTS.MAX_SM})`]: {
+    container: { height: HEIGHT.SM },
   },
 }));
