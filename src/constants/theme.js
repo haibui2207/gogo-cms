@@ -30,8 +30,10 @@ export const WHITE_MODE = {
   textWhite: '#fff',
   textBlack: '#303030',
   textGray: '#909090',
+  textGray2: '#8f8f8f',
   borderColor: '#d7d7d7',
   borderColor2: '#f3f3f3',
+  placeholder: '#6c757d',
 };
 
 export const DARK_MODE = {
@@ -43,6 +45,8 @@ export const DARK_MODE = {
   textWhite: '#d0d0d0',
   textBlack: '#969696',
   textGray: '#5a5a5a',
+  textGray2: '#757575',
   borderColor: '#424242',
   borderColor2: '#313131',
+  placeholder: '#6c757d',
 };

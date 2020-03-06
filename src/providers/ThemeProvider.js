@@ -24,9 +24,9 @@ const ThemeProvider = ({ children }) => {
     const savedTheme = JSON.parse(localStorage.getItem(KEY));
     if (!savedTheme) return;
 
-    const { mode, color, hoverColor } = savedTheme;
+    const { mode, color, colorHover } = savedTheme;
     localStorage.removeItem(KEY);
-    dispatch(setTheme({ mode, color, hoverColor }));
+    dispatch(setTheme({ mode, color, colorHover }));
   }, []);
 
   useEventListener('unload', () => {

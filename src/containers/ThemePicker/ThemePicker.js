@@ -1,9 +1,16 @@
-import React, { useState, memo, useMemo, useCallback, useRef } from 'react';
+import React, {
+  useState,
+  memo,
+  useMemo,
+  useCallback,
+  useRef,
+  useEffect,
+} from 'react';
 import classNames from 'classnames';
 import { useTheme } from 'react-jss';
-import { useDispatch } from 'react-redux';
-import { setTheme } from '@/redux/ducks/theme.ducks';
-import { MODES, HOVER_COLORS } from '@/constants';
+import { useDispatch, shallowEqual, useSelector } from 'react-redux';
+import { setTheme, getTheme } from '@/redux/ducks/theme.ducks';
+import { MODES, HOVER_COLORS, COLORS } from '@/constants';
 import { useOnClickOutside } from '@/utils';
 
 import ToggleButton from './components/ToggleButton';
@@ -15,10 +22,17 @@ const ThemePicker = () => {
   const [activatedColor, setActiveColor] = useState({
     mode: MODES.WHITE, index: 0,
   });
+  const selector = useSelector(getTheme, shallowEqual);
   const classes = useStyles({ theme: useTheme() });
+  const colors = useMemo(() => Object.values(COLORS), []);
   const hoverColors = useMemo(() => Object.values(HOVER_COLORS), []);
   const dispatch = useDispatch();
   const boxPickerRef = useRef();
+
+  useEffect(() => {
+    const { mode, color } = selector;
+    setActiveColor({ mode, index: colors.findIndex(c => c === color) });
+  }, [selector]);
 
   useOnClickOutside(boxPickerRef, () => { showBoxPicker(false); });
 

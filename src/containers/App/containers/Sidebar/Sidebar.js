@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { memo, useState, useRef, useEffect, useCallback } from 'react';
 import { useOnClickOutside, useEventListener } from '@/utils';
 import { BREAKPOINTS } from '@/constants';
@@ -46,16 +45,11 @@ const Sidebar = () => {
   });
 
   useOnClickOutside(sidebarRef, () => {
-    if (isMediumScreen()) {
-      setSidebarActivity(false);
-      setSubMenuActivity(false);
-    } else {
-      setSidebarState({
-        active: activatedSidebar,
-        activatedIndex: previousState.current.activatedSidebarIndex,
-      });
-      setSubMenuActivity(false);
-    }
+    setSidebarState({
+      active: isMediumScreen() ? false : activatedSidebar,
+      activatedIndex: previousState.current.activatedSidebarIndex,
+    });
+    setSubMenuActivity(false);
   });
 
   const handleMainMenuChange = (e, itemData, itemIndex) => {

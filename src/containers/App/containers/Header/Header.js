@@ -1,30 +1,32 @@
 import React, { memo } from 'react';
-import classNames from 'classnames';
 import Logo from '@/components/Logo';
 
+import SearchBox from './containers/SearchBox';
+import ToggleSidebarButton from './containers/ToggleSidebarButton';
+import SwitchingLanguageButton from './containers/SwitchingLanguageButton';
+import ToggleApplicationsButton from './containers/ToggleApplicationsButton';
+import ToggleNotificationButton from './containers/ToggleNotificationButton';
+import ToggleFullScreenButton from './containers/ToggleFullScreenButton';
+import ToggleUserMenu from './containers/ToggleUserMenu';
 import useStyles from './header.styles';
-import { useSidebar } from '../Sidebar';
 
 const Header = () => {
   const classes = useStyles();
-  const { active: activatedSidebar, toggle: toggleSidebar } = useSidebar();
 
   return (
     <nav className={classes.container}>
       <div className={classes.leftHeader}>
-        <span
-          role="presentation"
-          onClick={toggleSidebar}
-          className={classNames(
-            classes.toggleSidebarButton,
-            activatedSidebar && 'active',
-          )}
-        >
-          <i className="icon-menu" />
-        </span>
+        <ToggleSidebarButton className={classes.sidebarButton} />
+        <SearchBox onSearch={() => {}} className={classes.searchBox} />
+        <SwitchingLanguageButton className={classes.switchLanguageButton} />
       </div>
       <Logo className={classes.logo} />
-      <div className={classes.rightHeader}>xyz</div>
+      <div className={classes.rightHeader}>
+        <ToggleApplicationsButton className={classes.applicationButton} />
+        <ToggleNotificationButton className={classes.notificationButton} />
+        <ToggleFullScreenButton className={classes.toggleScreenButton} />
+        <ToggleUserMenu className={classes.userMenu} />
+      </div>
     </nav>
   );
 };
