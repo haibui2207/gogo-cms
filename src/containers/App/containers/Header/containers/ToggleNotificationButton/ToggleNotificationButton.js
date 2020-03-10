@@ -1,7 +1,7 @@
 import React, { memo, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { useOnClickOutside } from '@/utils';
+import { useOnClickOutside } from '@/hooks';
 
 import useStyles from './toggleNotificationButton.styles';
 import Badge from './components/Badge';

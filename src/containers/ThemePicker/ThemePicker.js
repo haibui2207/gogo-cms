@@ -11,7 +11,7 @@ import { useTheme } from 'react-jss';
 import { useDispatch, shallowEqual, useSelector } from 'react-redux';
 import { setTheme, getTheme } from '@/redux/ducks/theme.ducks';
 import { MODES, HOVER_COLORS, COLORS } from '@/constants';
-import { useOnClickOutside } from '@/utils';
+import { useOnClickOutside } from '@/hooks';
 
 import ToggleButton from './components/ToggleButton';
 import ColorPicker from './components/ColorPicker';

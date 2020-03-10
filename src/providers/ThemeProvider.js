@@ -4,7 +4,7 @@ import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 import { ThemeProvider as ThemeProviderJSS } from 'react-jss';
 import { getTheme, setTheme } from '@/redux/ducks/theme.ducks';
 import { MODES, WHITE_MODE, DARK_MODE } from '@/constants';
-import { useEventListener } from '@/utils';
+import { useEventListener } from '@/hooks';
 import { localStorage } from '@/services';
 
 const KEY = 'theme';

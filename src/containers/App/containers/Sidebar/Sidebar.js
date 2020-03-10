@@ -1,5 +1,5 @@
 import React, { memo, useState, useRef, useEffect, useCallback } from 'react';
-import { useOnClickOutside, useEventListener } from '@/utils';
+import { useOnClickOutside, useEventListener } from '@/hooks';
 import { BREAKPOINTS } from '@/constants';
 
 import MainMenu from './components/MainMenu';

@@ -1,5 +1,5 @@
 import { takeLatest, all, put, call } from 'redux-saga/effects';
-import { push } from 'react-router-redux';
+import { push } from 'connected-react-router';
 import {
   setFetching,
   requestSuccess,
