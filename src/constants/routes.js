@@ -3,6 +3,7 @@ import User from '@/containers/User';
 import NotFound from '@/containers/NotFound';
 import { routes } from '@/utils';
 import { PATHS as USER_PATHS } from '@/containers/User/constants';
+import { loginGuard, denyLoggedIn } from '@/HOCs';
 
 import PATHS from './paths';
 
@@ -20,13 +21,13 @@ export default [
   {
     path: PATHS.APP,
     title: routes.combineAppNameWithTitle('Admin Template'),
-    component: App,
+    component: loginGuard(App),
     exact: false,
   },
   {
     path: PATHS.USER,
     title: routes.combineAppNameWithTitle('User'),
-    component: User,
+    component: denyLoggedIn(User),
     exact: false,
   },
   {

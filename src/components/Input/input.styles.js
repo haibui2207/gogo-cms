@@ -1,9 +1,9 @@
 import { createUseStyles } from 'react-jss';
 import { hexToRgbA } from '@/utils';
 
-export default createUseStyles((theme) => ({
+export default createUseStyles(theme => ({
   container: {
-    height: 45,
+    minHeight: 45,
     marginBottom: 16,
     position: 'relative',
   },
@@ -29,5 +29,12 @@ export default createUseStyles((theme) => ({
     backgroundColor: theme.background,
     '&:focus': { outline: 'none', borderColor: hexToRgbA(theme.color, 0.6) },
     '&::placeholder': { color: hexToRgbA(theme.textBlack, 0.7) },
+  },
+  error: {
+    display: 'block',
+    fontSize: 13,
+    lineHeight: 1.5,
+    color: '#f00',
+    marginTop: 2,
   },
 }));

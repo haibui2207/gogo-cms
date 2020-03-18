@@ -1,9 +1,19 @@
 import localStorage from '@/services/localStorage';
-import { DOMAIN, FETCHING_TIMEOUT } from '@/configs';
+import { REST_DOMAIN, FETCHING_TIMEOUT } from '@/configs';
 
-const buildURL = (path) => [DOMAIN, path].join('/');
+const buildURL = path =>
+  // eslint-disable-next-line no-useless-escape
+  [REST_DOMAIN.replace(/[\/]+$/, ''), path.replace(/[\/]+$/, '')].join('/');
 
-const generateOptions = (customOptions) => {
+const buildQueryString = params => {
+  if (!params) return '';
+
+  return Object.keys(params)
+    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+    .join('&');
+};
+
+const generateOptions = customOptions => {
   const defaultOptions = {
     mode: 'cors',
     headers: {
@@ -20,12 +30,18 @@ const generateOptions = (customOptions) => {
   return { ...defaultOptions, ...customOptions };
 };
 
-const fetchWithTimeout = (args, timeout = FETCHING_TIMEOUT) => Promise.race([
-  fetch(...args),
-  new Promise((_, rj) => setTimeout(() => rj(new Error('Timeout')), timeout)),
-]);
+const fetchWithTimeout = (args, timeout = FETCHING_TIMEOUT) =>
+  Promise.race([
+    fetch(...args),
+    new Promise((_, rj) => {
+      const timer = setTimeout(() => {
+        clearTimeout(timer);
+        rj(new Error(`Fetching timeout in ${timeout} ms`));
+      }, timeout);
+    }),
+  ]);
 
-const handleResponse = (response) => {
+const handleResponse = response => {
   if (!response.ok) {
     return Promise.reject(response);
   }
@@ -37,21 +53,23 @@ const handleResponse = (response) => {
  * @function apiGet
  * @description Make a GET request.
  * @param {string} path
- * @param {object} body
+ * @param {object} query
  * @param {object} options
  * @returns {promise}
  */
-const apiGet = (path, body, options = {}) => fetchWithTimeout(
-  [
-    buildURL(path),
-    generateOptions({
-      ...options,
-      method: 'GET',
-      body: !options.keepBody ? JSON.stringify(body) : body,
-    }),
-  ],
-  options.timeout,
-).then(handleResponse).catch(handleResponse);
+const apiGet = (path, query = undefined, options = { timeout: undefined }) =>
+  fetchWithTimeout(
+    [
+      `${buildURL(path)}?${buildQueryString(query)}`,
+      generateOptions({
+        ...options,
+        method: 'GET',
+      }),
+    ],
+    options.timeout,
+  )
+    .then(handleResponse)
+    .catch(handleResponse);
 
 /**
  * @function apiPost
@@ -65,17 +83,20 @@ const apiPost = (
   path,
   body,
   options = { keepBody: false, timeout: undefined },
-) => fetchWithTimeout(
-  [
-    buildURL(path),
-    generateOptions({
-      ...options,
-      method: 'POST',
-      body: !options.keepBody ? JSON.stringify(body) : body,
-    }),
-  ],
-  options.timeout,
-).then(handleResponse).catch(handleResponse);
+) =>
+  fetchWithTimeout(
+    [
+      buildURL(path),
+      generateOptions({
+        ...options,
+        method: 'POST',
+        body: !options.keepBody ? JSON.stringify(body) : body,
+      }),
+    ],
+    options.timeout,
+  )
+    .then(handleResponse)
+    .catch(handleResponse);
 
 /**
  * @function apiPut
@@ -89,17 +110,20 @@ const apiPut = (
   path,
   body,
   options = { keepBody: false, timeout: undefined },
-) => fetchWithTimeout(
-  [
-    buildURL(path),
-    generateOptions({
-      ...options,
-      method: 'PUT',
-      body: !options.keepBody ? JSON.stringify(body) : body,
-    }),
-  ],
-  options.timeout,
-).then(handleResponse).catch(handleResponse);
+) =>
+  fetchWithTimeout(
+    [
+      buildURL(path),
+      generateOptions({
+        ...options,
+        method: 'PUT',
+        body: !options.keepBody ? JSON.stringify(body) : body,
+      }),
+    ],
+    options.timeout,
+  )
+    .then(handleResponse)
+    .catch(handleResponse);
 
 /**
  * @function apiDelete
@@ -113,17 +137,20 @@ const apiDelete = (
   path,
   body,
   options = { keepBody: false, timeout: undefined },
-) => fetchWithTimeout(
-  [
-    buildURL(path),
-    generateOptions({
-      ...options,
-      method: 'DELETE',
-      body: !options.keepBody ? JSON.stringify(body) : body,
-    }),
-  ],
-  options.timeout,
-).then(handleResponse).catch(handleResponse);
+) =>
+  fetchWithTimeout(
+    [
+      buildURL(path),
+      generateOptions({
+        ...options,
+        method: 'DELETE',
+        body: !options.keepBody ? JSON.stringify(body) : body,
+      }),
+    ],
+    options.timeout,
+  )
+    .then(handleResponse)
+    .catch(handleResponse);
 
 /**
  * @function apiPatch
@@ -137,17 +164,20 @@ const apiPatch = (
   path,
   body,
   options = { keepBody: false, timeout: undefined },
-) => fetchWithTimeout(
-  [
-    buildURL(path),
-    generateOptions({
-      ...options,
-      method: 'PATCH',
-      body: !options.keepBody ? JSON.stringify(body) : body,
-    }),
-  ],
-  options.timeout,
-).then(handleResponse).catch(handleResponse);
+) =>
+  fetchWithTimeout(
+    [
+      buildURL(path),
+      generateOptions({
+        ...options,
+        method: 'PATCH',
+        body: !options.keepBody ? JSON.stringify(body) : body,
+      }),
+    ],
+    options.timeout,
+  )
+    .then(handleResponse)
+    .catch(handleResponse);
 
 export default {
   get: apiGet,

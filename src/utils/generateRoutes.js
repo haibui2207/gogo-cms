@@ -20,9 +20,9 @@ const generateRoutes = (routes) => {
 
     return (
       <Route
-        key={rest.title}
-        component={withTitle(component, { title: rest.title })}
         {...rest}
+        key={`${rest.title}-${rest.path}`}
+        component={withTitle(component, { title: rest.title })}
       />
     );
   });

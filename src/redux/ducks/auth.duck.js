@@ -4,7 +4,7 @@ import { generateActions } from './common/apiActions.duck';
 /**
  * Setup state and prefix
  */
-const initialStates = { isLoggedIn: false, user: null, token: null };
+const initialStates = { user: null, token: null };
 const PREFIX = 'AUTH';
 
 /**
@@ -31,8 +31,8 @@ export const resetPassword = createAction(`${PREFIX}/RESET_PASSWORD`);
 export const getFetching = (state) => state.auth.fetching;
 export const getSuccess = (state) => state.auth.success;
 export const getError = (state) => state.auth.error;
-export const getToken = (state) => state.auth.token;
-export const getUser = (state) => state.auth.user;
+export const getToken = state => state.auth.token;
+export const getCurrentUser = state => state.auth.user;
 
 /**
  * Reducers - using for redux store
