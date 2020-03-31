@@ -13,11 +13,9 @@ import { IntlProvider } from 'react-intl-redux';
 
 import App from './App';
 import history from './history';
-import { configureStore } from './redux';
+import { store } from './redux';
 import { NotificationProvider, ThemeProvider } from './providers';
 import * as serviceWorker from './serviceWorker';
-
-const { store, runSagaMiddleware } = configureStore;
 
 /**
  * both Provider and ConnectedRouter to make sure that the ConnectedRouter
@@ -44,4 +42,3 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
-runSagaMiddleware();

@@ -46,7 +46,7 @@ const store = createStore(
   composeEnhancers(applyMiddleware(...middlewares)),
 );
 
-export default {
-  store,
-  runSagaMiddleware: () => sagaMiddleware.run(rootSagas),
-};
+// start middleware
+sagaMiddleware.run(rootSagas);
+
+export default store;
